@@ -68,6 +68,9 @@ MonoBehaviour:
   foodCount:
     minimum: 1
     maximum: 5
+  bombCount:
+    minimum: 1
+    maximum: 2
   exit: {fileID: 110520, guid: cb0f3020bafec423aa31d0e491c4b811, type: 3}
   floorTiles:
   - {fileID: 106160, guid: 038998774947c4a8fa170d5b4492a7dd, type: 3}
@@ -97,3 +100,5 @@ MonoBehaviour:
   - {fileID: 110520, guid: 7094f72151ec74f569c4e03f1ec0f8e7, type: 3}
   - {fileID: 110520, guid: b0ace21a29149403094422fb3bd96aa9, type: 3}
   - {fileID: 110520, guid: e85c94355cc4641da919bd5d0ac956d4, type: 3}
+  bombTiles:
+  - {fileID: 1963587640312355482, guid: 97907b031d98d894f90665651610f2cb, type: 3}

@@ -11,6 +11,7 @@ namespace Completed
 		public float restartLevelDelay = 1f;		//Delay time in seconds to restart level.
 		public int pointsPerFood = 10;				//Number of points to add to player food points when picking up a food object.
 		public int pointsPerSoda = 20;				//Number of points to add to player food points when picking up a soda object.
+		public int pointsPerBomb = -50;				//Number of points to add to player if set us up the bomb. 
 		public int bonusIfNotHit = 20;				//Food bonus at end of round if I don't hit any enemies (and if there are enemies).
 		private bool playerBeenHit;
 
@@ -221,6 +222,24 @@ namespace Completed
 				
 				//Disable the soda object the player collided with.
 				other.gameObject.SetActive (false);
+			}
+			
+			else if (other.tag == "Bomb")
+			{
+				// In inspector, this should be a negative value.
+				// Please use a negative value.
+				food += pointsPerBomb;
+				
+				//Call the RandomizeSfx function of SoundManager and pass in two random sounds to choose between to play the drinking sound effect.
+				SoundManager.instance.RandomizeSfx (gameOverSound, eatSound2);
+				
+				//Update foodText to represent current total and notify player that they gained points
+				foodText.text = "-" + pointsPerBomb + " Food: " + food;
+				
+				//Disable the bomb object the player collided with.
+				other.gameObject.SetActive (false);
+				
+				CheckIfGameOver ();
 			}
 		}
 		
