@@ -14,8 +14,7 @@ namespace Completed
 		public int playerFoodPoints = 100;						//Starting value for Player food points.
 		public static GameManager instance = null;				//Static instance of GameManager which allows it to be accessed by any other script.
 		[HideInInspector] public bool playersTurn = true;		//Boolean to check if it's players turn, hidden in inspector but public.
-		
-		
+
 		private Text levelText;									//Text to display current level number.
 		private GameObject levelImage;							//Image to block out level as levels are being set up, background for levelText.
 		private BoardManager boardScript;						//Store a reference to our BoardManager which will set up the level.
@@ -23,9 +22,9 @@ namespace Completed
 		private List<Enemy> enemies;							//List of all Enemy units, used to issue them move commands.
 		private bool enemiesMoving;								//Boolean to check if enemies are moving.
 		private bool doingSetup = true;							//Boolean to check if we're setting up board, prevent Player from moving during setup.
-		
-		
-		
+
+		public int EnemyCount => enemies.Count;
+
 		//Awake is always called before any Start functions
 		void Awake()
 		{
@@ -97,7 +96,6 @@ namespace Completed
 			
 			//Call the SetupScene function of the BoardManager script, pass it current level number.
 			boardScript.SetupScene(level);
-			
 		}
 		
 		
